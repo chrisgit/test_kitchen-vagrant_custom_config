@@ -1,0 +1,24 @@
+---
+driver:
+  name: vagrant
+
+platforms:
+- name: windows2012r2
+  driver:
+    communicator: winrm
+    gui: true
+    box: opentable/win-2012r2-standard-amd64-nocm
+    vagrantfile_erb: VagrantfileWinrm.erb    
+    linked_clone: true
+    customize:
+      memory: '2048'
+      cpus: '2'
+      vram: '32'
+      clipboard: bidirectional
+      draganddrop: bidirectional
+  transport: 
+      name: winrm 
+      max_threads: 6
+
+suites:
+- name: default
